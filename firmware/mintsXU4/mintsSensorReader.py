@@ -17,7 +17,6 @@ import serial
 import datetime
 import os
 import csv
-import deepdish as dd
 from mintsXU4 import mintsLatest as mL
 from mintsXU4 import mintsDefinitions as mD
 from getmac import get_mac_address
@@ -124,6 +123,114 @@ def sensorSend(sensorID,sensorData,dateTime):
         APDS9002Write(sensorData, dateTime)
 
 
+def FRG001Write(dataOut,dateTime):
+    sensorName = "FRG001"
+    dataLength = 100
+    if(len(dataOut) == (dataLength)):
+        sensorDictionary =  OrderedDict([
+                ("dateTime",str(dateTime)), # always the same
+        		("pm1"     ,dataOut[3]), # check with arduino code
+            	("pm2_5"   ,dataOut[2]),
+                ("pm4"     ,dataOut[1]),
+            	("pm10"    ,dataOut[0]),
+                ("pmTotal" ,dataOut[4]),
+                ("cN"      ,dataOut[5]),
+                ("binCount0"   ,dataOut[6]),
+            	("binCount1"   ,dataOut[7]),
+            	("binCount2"   ,dataOut[8]),
+            	("binCount3"   ,dataOut[9]),
+            	("binCount4"   ,dataOut[10]),
+            	("binCount5"   ,dataOut[11]),
+            	("binCount6"   ,dataOut[12]),
+            	("binCount7"   ,dataOut[13]),
+            	("binCount8"   ,dataOut[14]),
+            	("binCount9"   ,dataOut[15]),
+            	("binCount10"  ,dataOut[16]),
+            	("binCount11"  ,dataOut[17]),
+            	("binCount12"  ,dataOut[18]),
+            	("binCount13"  ,dataOut[19]),
+               	("binCount14"  ,dataOut[20]),
+            	("binCount15"  ,dataOut[21]),
+            	("binCount16"  ,dataOut[22]),
+            	("binCount17"  ,dataOut[23]),
+            	("binCount18"  ,dataOut[24]),
+            	("binCount19"  ,dataOut[25]),
+            	("binCount20"  ,dataOut[26]),
+            	("binCount21"  ,dataOut[27]),
+            	("binCount22"  ,dataOut[28]),
+            	("binCount23"  ,dataOut[29]),
+                ("binCount24"  ,dataOut[30]),
+            	("binCount25"  ,dataOut[31]),
+            	("binCount26"  ,dataOut[32]),
+            	("binCount27"  ,dataOut[33]),
+            	("binCount28"  ,dataOut[34]),
+            	("binCount29"  ,dataOut[35]),
+            	("binCount30"  ,dataOut[36]),
+            	("binCount31"  ,dataOut[37]),
+            	("binCount32"  ,dataOut[38]),
+            	("binCount33"  ,dataOut[39]),
+            	("binCount34"  ,dataOut[40]),
+            	("binCount35"  ,dataOut[41]),
+            	("binCount36"  ,dataOut[42]),
+            	("binCount37"  ,dataOut[43]),
+            	("binCount38"  ,dataOut[44]),
+            	("binCount39"  ,dataOut[45]),
+            	("binCount40"  ,dataOut[46]),
+            	("binCount41"  ,dataOut[47]),
+            	("binCount42"  ,dataOut[48]),
+            	("binCount43"  ,dataOut[49]),
+                ("binCount44"  ,dataOut[50]),
+                ("binCount45"  ,dataOut[51]),
+            	("binCount46"  ,dataOut[52]),
+            	("binCount47"  ,dataOut[53]),
+            	("binCount48"  ,dataOut[54]),
+            	("binCount49"  ,dataOut[55]),
+            	("binCount50"  ,dataOut[56]),
+            	("binCount51"  ,dataOut[57]),
+            	("binCount52"  ,dataOut[58]),
+            	("binCount53"  ,dataOut[59]),
+            	("binCount54"  ,dataOut[50]),
+            	("binCount55"  ,dataOut[61]),
+            	("binCount56"  ,dataOut[62]),
+            	("binCount57"  ,dataOut[63]),
+            	("binCount58"  ,dataOut[64]),
+            	("binCount59"  ,dataOut[65]),
+            	("binCount60"  ,dataOut[66]),
+            	("binCount61"  ,dataOut[67]),
+            	("binCount62"  ,dataOut[68]),
+            	("binCount63"  ,dataOut[69]),
+            	("binCount64"  ,dataOut[70]),       
+                ("binCount65"  ,dataOut[71]),
+            	("binCount66"  ,dataOut[72]),
+            	("binCount67"  ,dataOut[73]),
+            	("binCount68"  ,dataOut[74]),
+            	("binCount69"  ,dataOut[75]),
+            	("binCount70"  ,dataOut[76]),
+            	("binCount71"  ,dataOut[77]),
+            	("binCount72"  ,dataOut[78]),
+            	("binCount73"  ,dataOut[79]),
+            	("binCount74"  ,dataOut[80]),
+            	("binCount75"  ,dataOut[81]),
+            	("binCount76"  ,dataOut[82]),
+            	("binCount77"  ,dataOut[83]),
+            	("binCount78"  ,dataOut[84]),
+            	("binCount79"  ,dataOut[85]),
+            	("binCount80"  ,dataOut[86]),
+            	("binCount81"  ,dataOut[87]),
+            	("binCount82"  ,dataOut[88]),
+            	("binCount83"  ,dataOut[89]),
+            	("binCount84"  ,dataOut[90]),
+            	("binCount85"  ,dataOut[91]),
+            	("binCount86"  ,dataOut[92]),
+            	("binCount87"  ,dataOut[93]),
+            	("binCount88"  ,dataOut[94]),
+            	("binCount89"  ,dataOut[95]),
+            	("binCount90"  ,dataOut[96]),
+            	("binCount91"  ,dataOut[97]),
+            	("binCount92"  ,dataOut[98]),
+                ("binCount93"  ,dataOut[99])
+                   ])
+        sensorFinisher(dateTime,sensorName,sensorDictionary)
 
 
 
