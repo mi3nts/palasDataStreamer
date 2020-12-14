@@ -40,10 +40,11 @@ def findMacAddress():
     macAddress= get_mac_address(interface="enp1s0")
     if (macAddress!= None):
         return macAddress.replace(":","")
+    macAddress= get_mac_address(interface="ethernet")
+    if (macAddress!= None):
+        return macAddress.replace(":","")
 
     return "xxxxxxxx"
-
-
 
 dataFolderReference       = "/home/teamlary/mintsData/reference"
 dataFolderMQTTReference   = "/home/teamlary/mintsData/referenceMQTT"
