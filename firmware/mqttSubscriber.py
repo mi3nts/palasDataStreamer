@@ -26,7 +26,7 @@ broker      = mqttBroker
 port        = mqttPort  # Secure port
 mqttUN      = credentials['mqtt']['username'] 
 mqttPW      = credentials['mqtt']['password'] 
-tlsCert     ="C:/Users/lakit/Downloads/ca-certificates.crt" 
+tlsCert     ="/etc/ssl/certs/ca-certificates.crt"
 
 
 decoder = json.JSONDecoder(object_pairs_hook=collections.OrderedDict)
@@ -37,7 +37,7 @@ def on_connect(client, userdata, flags, rc):
  
     # Subscribing in on_connect() - if we lose the connection and
     # reconnect then subscriptions will be renewed.
-    nodeID = "cc483a5b3c7d"
+    nodeID = "0001c0231d43"
     client.subscribe(nodeID+"/FRG001")
     
 
